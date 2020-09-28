@@ -1,0 +1,29 @@
+{% extends 'todoapp/home.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>  
+        input.l{ 
+            width: 40px; 
+            height: 40px; 
+          } 
+    </style> 
+</head>
+<body>
+    {% block content %}
+    <!--<h1>TODOAPP by Nani</h1>-->
+    <div style="text-align: center;">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.content}}
+            <h3>Done</h3><p class="l">{{form.Done}}</p>
+            <br>
+            <input type="submit" value="Update" class="button">
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

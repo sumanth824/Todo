@@ -1,0 +1,22 @@
+{% extends 'todoapp/home.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    {% block content %}
+    <div style="text-align: center;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3>Are You sure You Want to delete ?</h3>
+            <h3>{{item}}</h3>
+            <a href="{% url 'home' %}" class="greenbutton">  Cancel </a>
+            <input type="submit" value="Delete" class="redbutton">
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
