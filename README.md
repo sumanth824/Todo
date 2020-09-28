@@ -1,2 +1,3 @@
 # TODO
-TODO app with CRUD Operations.
+TODO app with CRUD Operations Using Django.
+
