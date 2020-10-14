@@ -5,7 +5,7 @@ from .models import *
 class listform(forms.ModelForm):
     class Meta:
         model = listapp
-        fields = '__all__'
+        fields = ['content','Done']
 
 
 
