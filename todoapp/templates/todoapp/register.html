@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .design{
+      align-items: center;
+    }
+  </style>
+</head>
+<body bgcolor="grey">
+  {% block content %}
+  <div style="text-align: center; ">
+    <h2 style="color: antiquewhite;">Register</h2>
+    <form method="POST">
+      {% csrf_token %}
+      <input type="text" name="fname" placeholder="firstname" required>
+      <br><br>
+      <input type="text" name="lname" placeholder="lastname" required>
+      <br><br>
+      <input type="text" name="uname" placeholder="Username" required>
+      <br><br>
+      <input type="email" name="email" placeholder="email" required>
+      <br><br>
+      <input type="password" name="password1" placeholder="Password" required>
+      <br><br>
+      <input type="password" name="password2" placeholder="Confirm Password" required>
+      <br><br>
+      <button>Register</button>
+    </form>
+      {% for message in messages %}
+        <h2 style="color: black;">{{message}}</h2>
+      {% endfor %}
+    <h3 style="color: antiquewhite;">Already Have an Account ? <a  style = "color: white" href="{% url 'login' %}"> Login </a></h3>
+  </div>
+  {% endblock %}
+</body>
+</html>

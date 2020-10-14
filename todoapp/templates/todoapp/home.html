@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .button {
+            width: 21.5%;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+          }
+        .greenbutton {
+            width: 10%;
+            margin: 10px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 1.5em;
+            text-decoration: none;
+          }
+        .redbutton {
+            width: 10%;
+            margin: 10px;
+            padding: 10px;
+            background-color: red;
+            color: white;
+            padding: 1em 1.5em;
+            text-decoration: none;
+          }
+        input{
+            padding: 10px;
+            width: 20%;
+        }
+        h3{
+            color: antiquewhite;
+            border-width: 10px;
+            border-style: ;
+        }
+        h1{
+            position: inherit;
+            text-align: center;
+            color:antiquewhite;
+            text-align: center;
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 5px 10px;
+            box-sizing: border-box;
+            width: overflow: hidden;;
+            height: 100px;
+            padding: 30px;  
+        }
+        }
+    </style>
+    <title>TODO</title>
+</head>
+<body bgcolor="black">
+    <h1>You can add your todo tasks here!</h1>
+    {% if user.is_authenticated %}
+    <h2 style="color: white;">Hello {{user.username}}</h2>
+    <h2 style="color: white;">First name - {{user.first_name}}</h2>
+    <h2 style="color: white;">Last name - {{user.last_name}}</h2>
+    <h2 style="color: white;">email  - {{user.email}}</h2>
+    <h2 style="color: white;">Date-joined - {{user.date_joined}}</h2>
+    <a style="color:white;" href="{% url 'logout' %}">logout</a>
+    {% endif %}
+    {% block content %}
+    <div style="text-align: center;">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{form.content}}
+            <!--<input type="text" name="content" placeholder="Add task here....">
+            <br>-->
+            <br>
+            <input type="button" value="Add Task" class="button">
+        </form>
+        <br>
+        {% for i in pass %}
+            {% if i.Done == True %}
+            <h3><strike>{{i}}</strike></h3>
+            <br>
+            {% else %}
+            <h3>{{i}}</h3>
+            <br>
+            {% endif %}
+            <a href="{% url 'updatelist' i.id %}" class="greenbutton">Update</a>
+            <a href="{% url 'deletelist' i.id %}" class="redbutton">Delete</a>
+            <br><br>
+        {% endfor %}
+    </div>
+    {% endblock %}
+</body>
+</html>

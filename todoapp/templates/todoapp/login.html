@@ -1,0 +1,28 @@
+{% extends 'todoapp/register.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    {% block content %}
+    <div style="text-align: center;">
+        <h1 style="color: antiquewhite;">Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="username" required>
+            <br><br>
+            <input type="password" name="password" placeholder="password" required>
+            <br><br>
+            <input type="submit" value="Login">
+        </form>
+        {% for message in messages %}
+            <h2 style="color: black;">{{message}}</h2>
+        {% endfor %}
+        <h3 style="color: antiquewhite;">Don't have an account ? <a style = "color: white" href="{% url 'register' %}">Register </a></h3>
+    </div>
+    {% endblock %}
+</body>
+</html>
