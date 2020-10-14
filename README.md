@@ -1,3 +1,3 @@
 # Todo
-Todo app with CRUD Operations Using Django.
+Todo app with authentication and Crud Operations Using Django.
 
