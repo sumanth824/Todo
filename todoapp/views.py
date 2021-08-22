@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # lkaknf
-# Branch Sumanth
+# Branch Trivikram
 
 
 def logout(request):
